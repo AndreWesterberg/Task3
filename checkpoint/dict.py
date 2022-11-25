@@ -6,12 +6,17 @@ conn = psycopg2.connect(
    password="Andre9119"
 )
 
+<<<<<<< HEAD
 def read_dict(connection):#returns a list with all the words in the database
+=======
+def read_dict(connection):
+>>>>>>> development
     cur = connection.cursor()
     cur.execute("SELECT id, word, translation FROM dictionary;")
     rows = cur.fetchall()
     cur.close()
     return rows
+<<<<<<< HEAD
 def add_word(connection, word, translation): # Add new word
     cur = connection.cursor()
     cur.execute(f"INSERT INTO dictionary (word, translation) VALUES ('{word}', '{translation}');")
@@ -25,6 +30,21 @@ def save_dict(connection): # saves the dictionary
     cur.execute("COMMIT;")
     cur.close()
 def insert_word(connection, word, translation): # print word without connecting to database
+=======
+def add_word(connection, word, translation):
+    cur = connection.cursor()
+    cur.execute(f"INSERT INTO dictionary (word, translation) VALUES ('{word}', '{translation}');")
+    cur.close()
+def delete_word(connection, ID):
+    cur = connection.cursor()
+    cur.execute(f"DELETE FROM dictionary WHERE id = '{ID}';")
+    cur.close()
+def save_dict(connection):
+    cur = C.cursor()
+    cur.execute("COMMIT;")
+    cur.close()
+def insert_word(connection, word, translation):
+>>>>>>> development
     print(word,translation)
 
 while True: ## REPL - Read Execute Program Loop
