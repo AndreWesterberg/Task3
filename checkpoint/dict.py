@@ -26,7 +26,7 @@ def save_dict(C):
     cur.close()
 
 while True: ## REPL - Read Execute Program Loop
-    cmd = input("Command: ")
+    cmd = input("Options add,delete,list,quit enter your command: ")
     if cmd == "list":
         print(read_dict(conn))
     elif cmd == "add":
