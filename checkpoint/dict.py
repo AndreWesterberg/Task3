@@ -24,9 +24,11 @@ def save_dict(C):
     cur = C.cursor()
     cur.execute("COMMIT;")
     cur.close()
+def insert_word(C, word, translation):
+    print(word,translation)
 
 while True: ## REPL - Read Execute Program Loop
-    cmd = input("Options add,delete,list,quit enter your command: ")
+    cmd = input("Options add,delete,list,quit,print enter your command: ")
     if cmd == "list":
         print(read_dict(conn))
     elif cmd == "add":
@@ -39,3 +41,8 @@ while True: ## REPL - Read Execute Program Loop
     elif cmd == "quit":
         save_dict(conn)
         exit()
+    elif cmd == "print":
+        word = input("  Word: ")
+        translation = input("  Translation: ")
+        insert_word(conn, word, translation)
+        
